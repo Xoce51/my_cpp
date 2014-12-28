@@ -19,9 +19,18 @@ Rule.	TypeDecl ::= ClassHeader "{" [Dec] "}";
 separator TypeDecl "";
 
 -- class and interface declaration
-ClassDec.	  ClassHeader ::= "class" Ident;
-ClassDecE.	ClassHeader ::= "class" Ident ":" [Ident];
-ClassDecEI.	ClassHeader ::= "class" Ident ":" [Ident];cd
+ClassDec.	  ClassHeader ::= [Modifier] "class" Ident;
+ClassDecE.	ClassHeader ::= [Modifier] "class" Ident ":" [Ident];
+ClassDecEI.	ClassHeader ::= [Modifier] "class" Ident ":" [Ident];cd
+
+-- initialize modifier for class and method type...
+
+Mabstract.	 Modifier ::= "abstract";
+Mpublic.	   Modifier ::= "public";
+Mprotected.	 Modifier ::= "protected";
+Mprivate.	   Modifier ::= "private";
+Mstatic.	   Modifier ::= "static";
+terminator Modifier "";
 
 -- end class declaration
 
